@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Map My Feed </title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      .labels {
+  color: white;
+  background-color: red;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  font-size: 10px;
+  text-align: center;
+  width: 30px;
+  white-space: nowrap;
+}
+    </style>
+  </head>
+  <body>
+<div id="map"></div>
+    
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var geocoder;
+  var map;
+  
+  var locations=[
+'New York City',
+'Los Angeles',
+'Chicago',
+'Houston',
+'Philadelphia',
+'Phoenix',
+'San Diego',
+'San Francisco',
+'Indianapolis',
+'Washington, D.C.']
+
+
+  function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: -28.024, lng: 140.887}
+        });
+        //Iterate Over the List of Locations and fetch the data 
+            downloadDataFromWeb(locations[0],0)
+      
+  }
+function downloadDataFromWeb(cityCode,cityId){
+    var url="https://access.alchemyapi.com/calls/data/GetNews"
+var enrichedUrl='|text='+cityCode+',type=city|'
+console.log(enrichedUrl)
+url += '?' + $.param({
+  'apikey': "0d48b5ecfeb6b69c069f2ffd09287ec518c1d91c",
+  return: 'enriched.url.title',
+  'start': "now-1d",
+  'end': "now",
+  'sort': "newest",
+  'q.enriched.url.enrichedTitle.entities.entity':enrichedUrl,
+  count:10,
+  outputMode:'json'
+});
+console.log("Doing Ajax")
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(result) {
+    console.log(result)
+    startParsingData(result.docs,cityCode)
+    if(cityId+1<locations.length){
+    setTimeout(function() {
+      downloadDataFromWeb(locations[cityId+1],cityId+1)}, 300)
+}
+  else
+  console.log("Boom !! And Everything is Over ")
+  
+}).fail(function(err) {
+  console.log("Oopsies !! Error "+cityCode)
+  console.log(err)
+  throw err;
+});
+
+}
+
+
+
+function startParsingData(dataNode,cityCode){
+    console.log(dataNode)
+    codeAddress(dataNode,cityCode,dataNode.length)
+}
+
+
+function openNewsDetail(dataNode){
+  var web_urls=[]
+  for(i=0;i<dataNode.length;i++){
+    web_urls.push(dataNode[i].web_url)
+  }
+  console.log("Mapping The Web URL ")
+  console.log(web_urls)
+}
+ function codeAddress(dataNode,addressinWords,numberOfResults) {
+     
+    
+ 
+     var dataCount=numberOfResults>10?'10+':numberOfResults
+      var infowindow = new google.maps.InfoWindow();
+   content= document.createElement('a');
+
+    content.setAttribute('href','#');
+   
+    content.appendChild(document.createTextNode(addressinWords+' '+dataCount+' News'));
+    google.maps.event.addDomListener(content,'click',
+                                     function(){openNewsDetail(dataNode);})
+    infowindow.setContent(content);
+
+
+      geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address':addressinWords}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+           icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' +dataCount + '|FF0000|000000',
+            visible: true,
+            snippet:"Population: 776733"
+        });
+        marker.setMap(map)
+        
+         marker.addListener('click', function() {
+    infowindow.open(map, marker);
+    infowindow.addListener('click',function(){
+        console.log("Okay !! Some Serious Data Displaying to be Done !!")
+    })
+  });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+</script>
+ <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer  src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js&callback=markerLoaded"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtP-yPXvls7KXyrqXzgIeKRIT-Wbp7Rao&callback=initMap">
+    </script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/markermanager/1.2/markermanager.js"></script>
+
+</html>

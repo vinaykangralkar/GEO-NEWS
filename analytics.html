@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MapMyNews</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+
+  <!-- Custom styling plus plugins -->
+  <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />
+ 
+
+  <link href="css/icheck/flat/green.css" rel="stylesheet">
+  <link href="css/floatexamples.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+  <script src="js/nprogress.js"></script>
+<script src="js/constants.js"></script>
+  <script src="js/jquery.min.js"></script>
+  
+    <!-- ion_range -->
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+
+  
+  	  <!-- Scrolling Nav JavaScript -->
+   <script src="js/jquery.easing.min.js"></script>
+   <script src="js/scrolling-nav.js"></script>
+   
+  <!--[if lt IE 9]>
+        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><i class="fa fa-area-chart"></i> <span>MapMyNews</span></a>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- menu prile quick info -->
+          
+          <!-- /menu prile quick info -->
+           <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+            <div class="menu_section">
+             <h4></h4>
+              <ul class="nav side-menu">
+                <li><a href="index.html"><i class="fa fa-book"></i>NYTimes</a>
+                 
+                </li>
+                <li><a id="date"><i class="fa fa-calendar"></i>Date Ranges</a>
+                  
+                </li>
+                <li><a href="analytics.html"><i class="fa fa-line-chart"></i>Data Analytics</a>
+                
+               
+                </li>
+				
+                   
+                    
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            
+
+          </div>
+          <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+         
+          </nav>
+        </div>
+
+      </div>
+      <!-- /top navigation -->
+
+
+
+      <!-- page content -->
+      <div class="right_col" role="main">	
+
+		  
+		  <div class="row">
+		  
+           
+                <div class="x_content">
+					
+				
+				
+			<div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Graph representation of the News Feeds</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a></a></li>
+                    
+					<li><a></a> </li>
+                   
+                    <li>
+					<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+					
+					<div class="x_content">
+						
+						
+						<div class="row">		
+						
+			<div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel tile">
+              <div class="x_title">
+                <h2>Cities rating based on the news feeds</h2>
+               
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+						
+         <div class="row">	
+			   <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel tile">
+			<div class="x_title">
+              
+                <div class="dropdown col-md-6">
+                <button class="btn btn-primary dropdown-toggle" id="cities" type="button" data-toggle="dropdown">Select a City
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="places_dropdown">
+                <li><a  id="New York City">New York City</a></li>
+                <li><a  id="Los Angeles"> Los Angeles</a></li>
+                <li><a  id="Chicago">Chicago</a></li>
+                <li><a  id="Houston">Houston</a></li>
+                <li><a id="Philadelphia">Philadelphia</a></li>
+                <li><a  id="Phoenix">Phoenix</a></li>
+                <li><a  id="San Diego">San Diego</a></li>
+                <li><a  id="San Francisco">San Francisco</a></li>
+                <li><a id="Indianapolis">Indianapolis</a></li>
+                <li><a id="Washington, D.C.">Washington, D.C.</a></li>
+                <li><a id="Buenos Aires">Buenos Aires</a></li>
+                <li><a  id="Rio de Janerio">Rio de Janerio</a></li>
+                <li><a id="Istanbul">Istanbul</a></li>
+                <li><a id="Moscow">Moscow</a></li>
+                </ul>
+                </div>
+			  <div class="clearfix"></div>
+			  </div>
+              <div class="x_content">
+                
+               <canvas id="CityEmotion" height="90%"></canvas>
+               
+						</div>
+						</div>
+						</div>
+						
+
+					
+					</div>
+						</div>
+						</div>
+						</div>
+						
+						
+						</div>
+						
+						
+						 <div class="row">		
+						
+			<div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel tile">
+              <div class="x_title">
+                <h2>Comparison between Cities</h2>
+               
+                <div class="clearfix"></div>
+              </div>
+			  
+			  
+              <div class="x_content">
+			  
+			  
+			  <div class="row">	
+			   <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel tile">
+			<div class="x_title">
+			    
+			     <div class="dropdown col-md-6">
+                <button class="btn btn-primary dropdown-toggle" id="cities1" type="button" data-toggle="dropdown">Select a City
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="places_dropdown1">
+                <li><a  id="New York City1">New York City</a></li>
+                <li><a id="Los Angeles"> Los Angeles</a></li>
+                <li><a  id="Chicago">Chicago</a></li>
+                <li><a  id="Houston">Houston</a></li>
+                <li><a  id="Philadelphia">Philadelphia</a></li>
+                <li><a  id="Phoenix">Phoenix</a></li>
+                <li><a  id="San Diego">San Diego</a></li>
+                <li><a  id="San Francisco">San Francisco</a></li>
+                <li><a  id="Indianapolis">Indianapolis</a></li>
+                <li><a  id="Washington, D.C.">Washington, D.C.</a></li>
+                <li><a  id="Buenos Aires">Buenos Aires</a></li>
+                <li><a  id="Rio de Janerio">Rio de Janerio</a></li>
+                <li><a  id="Istanbul">Istanbul</a></li>
+                <li><a  id="Moscow">Moscow</a></li>
+                </ul>
+                </div>
+                
+                 <div class="dropdown col-md-6">
+                <button class="btn btn-primary dropdown-toggle" id="cities2" type="button" data-toggle="dropdown">Select a City
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="places_dropdown2">
+                <li><a  id="London">London</a></li>
+                <li><a id="Brussels">Brussels</a></li>
+                <li><a  id="Berlin">Berlin</a></li>
+                <li><a  id="Madrid">Madrid</a></li>
+                <li><a  id="Paris">Paris</a></li>
+                <li><a  id="Milan">Milan</a></li>
+                <li><a  id="Naples">Naples</a></li>
+                <li><a  id="Mumbai">Mumbai</a></li>
+                <li><a  id="Seoul">Seoul</a></li>
+                <li><a  id="Tehran">Tehran</a></li>
+                <li><a  id="Cape Town">Cape Town</a></li>
+                <li><a  id="Durban">Durban</a></li>
+                <li><a  id="Sydney">Sydney</a></li>
+                <li><a  id="Toronto">Toronto</a></li>
+                </ul>
+                </div>
+			    
+			    
+              
+                
+                 
+                
+			  <div class="clearfix"></div>
+			  </div>
+              <div class="x_content">
+			  
+               <canvas id="cityCompare" height="90%"></canvas>
+			   
+			   
+			   </div>
+						</div>
+						</div>
+						</div>
+			   
+               
+						</div>
+						</div>
+						</div>
+						</div>
+						
+						
+						
+						
+					</div>
+					</div>
+						</div>
+						
+				
+				</div>
+		  
+		  
+
+
+        <!-- footer content -->
+       
+        <!-- /footer content -->
+
+      </div>
+	  
+	   
+	  <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Back to Top" data-toggle="tooltip" data-placement="top">
+  <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
+      <!-- /page content -->
+    </div>
+	
+
+  </div>
+
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
+
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- bootstrap progress js -->
+  <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
+  <!-- icheck -->
+  <script src="js/icheck/icheck.min.js"></script>
+  <!-- knob -->
+  <script src="http://cdn.crunchify.com/wp-content/uploads/code/knob.js"></script>
+  <!-- daterangepicker -->
+  <script type="text/javascript" src="js/moment/moment.min.js"></script>
+  <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+  <!-- chart js -->
+  <script src="js/chartjs/chart.min.js"></script>
+  <!-- sparkline -->
+  <script src="js/sparkline/jquery.sparkline.min.js"></script>
+	
+
+	
+  <script src="js/custom.js"></script>
+
+  
+  <!-- pace -->
+  <script src="js/pace/pace.min.js"></script>
+
+ 
+ 
+ <script>
+ var bigDatas=[]
+  var bigDataRoots={
+  anger:0.0,
+  disgust:0.0,
+  fear:0.0,
+  joy:0.0,
+  sadness:0.0
+}
+bigDatas.push({
+  anger:0.0,
+  disgust:0.0,
+  fear:0.0,
+  joy:0.0,
+  sadness:0.0
+}) //For the Standalone data node Object 
+bigDatas.push({
+  anger:0.0,
+  disgust:0.0,
+  fear:0.0,
+  joy:0.0,
+  sadness:0.0
+}) // FOr the Participant 1 Object 
+bigDatas.push({
+  anger:0.0,
+  disgust:0.0,
+  fear:0.0,
+  joy:0.0,
+  sadness:0.0
+}) // For the Participant 2 Object 
+
+     $(document).ready(function() {
+                 
+                   backToTop();
+                
+            });
+			
+ 
+  
+   function plotCityEmotion()
+		{
+			//Test Case Execution Graph
+			
+			var sentiments=['Anger','Disgust','Fear','Joy','Sadness']
+			var valuespair=[bigDatas[0].anger,bigDatas[0].disgust,bigDatas[0].fear,bigDatas[0].joy,bigDatas[0].sadness]
+		
+			var barChartData = {
+            labels: sentiments,
+            datasets: [
+	
+			{
+                type: 'bar',
+                label: 'Sentiment Level',
+                backgroundColor: "#5DADE2",	//"rgba(151,187,205,1)",
+                data:valuespair 
+            }
+		 ]
+        };
+        
+		//window.onload = function() {
+            var ctx = document.getElementById("CityEmotion").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,					
+					scales: {
+                        xAxes: [{
+							barPercentage: 0.5,
+                            stacked: true,
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    },
+                    //title: {
+                        //display: true,
+                       // text: 'Chart.js Combo Bar Line Chart'
+                    //},
+					legend: {
+						display: true,
+						position: 'bottom',
+						fullWidth: true,
+						labels : {
+							boxWidth: 10
+						}						
+					}                    
+                }
+            });	
+		}
+			
+</script>
+
+	<!-- Back to Top -->
+  <script type="text/javascript">
+  function backToTop() {
+     $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            $('#back-to-top').tooltip('hide');
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+        
+        $('#back-to-top').tooltip('show');
+}
+
+ function getEventTarget(e) {
+        e = e || window.event;
+        return e.target || e.srcElement; 
+    }
+
+    var ul = document.getElementById('places_dropdown');
+    ul.onclick = function(event) {
+        var target = getEventTarget(event);
+              $('#cities').html(target.innerHTML)
+            loadNews(target.innerHTML,0,false)
+    };
+    
+    var places1=document.getElementById('places_dropdown1');
+ places1.onclick = function(event) {
+        var target = getEventTarget(event);
+        $('#cities1').html(target.innerHTML)
+      loadNews(target.innerHTML,1,false)
+
+
+    };
+
+ var places2=document.getElementById('places_dropdown2');
+ places2.onclick = function(event) {
+        var target = getEventTarget(event);
+        $('#cities2').html(target.innerHTML)
+      loadNews(target.innerHTML,2,false)
+
+
+    };
+    
+function loadNews(cityName,bigDataIndex,specialcase){
+  //3b2d67cf6f1843e99a7577629d9663d6
+ var url = "https://newsapi.org/v2/everything";
+         url += '?' + $.param({
+                                 'apiKey': "796dd65d43df4c16b9e7935cc9609f50",
+                                 'q':cityName,
+                                 'fl': "abstract,web_url,headline,snippet,lead_paragraph,multimedia",
+                                 'sort': "newest"
+            });
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(result) {
+  console.log(result)
+  
+  preSentimentWordFactory(result,bigDataIndex,specialcase)
+}).fail(function(err) {
+  console.log("Oopsies !! Error "+cityCode)
+  console.log(err)
+  throw err;
+});
+
+}
+
+function preSentimentWordFactory(result,bigDataIndex,specialcase){
+  var bigString=""
+  console.log(result.articles)
+  
+  for(var i=0;i<result.articles.length;i++){
+    bigString+=result.articles[i].title
+  }
+  callWatsonAPI(bigString,bigDataIndex,specialcase)  
+}
+
+
+
+function callWatsonAPI(aggregratedString,bigDataIndex,specialcase){
+  
+  var url = "http://localhost:5500/api/tonereq";
+url += '?text=' +aggregratedString;
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(result) {
+  calculateResults(result.docEmotions,bigDataIndex,specialcase)
+  //preSentimentWordFactory(result)
+}).fail(function(err) {
+  console.log("Oopsies !! Error "+cityCode)
+  console.log(err)
+  throw err;
+});
+  
+
+}
+
+function calculateResults(sourceData,bigDataIndex,specialcase){
+  
+  bigDatas[bigDataIndex].anger=sourceData.anger;
+  bigDatas[bigDataIndex].disgust=sourceData.disgust;
+  bigDatas[bigDataIndex].fear=sourceData.fear;
+  bigDatas[bigDataIndex].joy=sourceData.joy;
+  bigDatas[bigDataIndex].sadness=sourceData.sadness;
+  
+  if(specialcase){
+     bigDatas[bigDataIndex+1].anger=sourceData.anger;
+  bigDatas[bigDataIndex+1].disgust=sourceData.disgust;
+  bigDatas[bigDataIndex+1].fear=sourceData.fear;
+  bigDatas[bigDataIndex+1].joy=sourceData.joy;
+  bigDatas[bigDataIndex+1].sadness=sourceData.sadness;
+    
+  }
+  if(bigDataIndex==0)
+  plotCityEmotion()
+  else
+  plotCityCompare()
+}
+
+
+function plotCityCompare() {
+    var emotions = ['Anger','Disgust','Fear','Joy','Sadness'];
+    var firstDataRange=[bigDatas[1].anger,bigDatas[1].disgust,bigDatas[1].fear,bigDatas[1].joy,bigDatas[1].sadness]
+    var secondDataRange=[bigDatas[2].anger,bigDatas[2].disgust,bigDatas[2].fear,bigDatas[2].joy,bigDatas[2].sadness]
+    console.log(firstDataRange)
+    console.log(secondDataRange)
+var lineChartData = {
+            labels: emotions,
+            datasets: [
+			{
+                type: 'line',
+                label: 'City 1',
+                backgroundColor: "rgba(0,128,0,0.3)",
+                data:firstDataRange,
+                borderColor: 'green' ,               
+            },
+			{
+                type: 'line',
+                label: 'City 2',
+                backgroundColor: "rgba(255,0,0,0.3)",
+                data:secondDataRange,
+                borderColor: 'red' ,               
+            },
+			 ]
+        };
+        
+		//window.onload = function() {
+            var ctx = document.getElementById("cityCompare").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'line',
+                data: lineChartData,
+                options: {
+                    responsive: true,					
+					scales: {
+                        xAxes: [{
+							
+                            
+                        }],
+                        yAxes: [{
+                            
+                        }]
+                    },
+                    //title: {
+                        //display: true,
+                       // text: 'Chart.js Combo Bar Line Chart'
+                    //},
+					legend: {
+						display: true,
+						position: 'bottom',
+						fullWidth: false,
+						labels : {
+							boxWidth: 10
+						}						
+					}                    
+                }
+            });	
+			
+}		
+
+$(document).ready(function() {
+      loadNews('New York City',0,true);
+      $('#cities').html('New York City');
+      $('#cities1').html('New York City');
+       setTimeout(function() {
+               loadNews('Durban',2,false)
+               $('#cities2').html('Durban');
+       }, 3000)
+});
+	</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+var url ="https://access.alchemyapi.com/calls/text/TextGetEmotion"
+url += '?' + $.param({
+  'apikey': "0d48b5ecfeb6b69c069f2ffd09287ec518c1d91c",
+  'text':'Finally . I got a Internship at Google.  ',
+  outputMode:'json'
+});
+
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(result) {
+   console.log(result)
+}).fail(function(err) {
+  console.log("Oopsies !! Error ")
+  console.log(err)
+  throw err;
+})
+</script>

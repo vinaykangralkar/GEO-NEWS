@@ -1,0 +1,17 @@
+<script>
+var watson = require('watson-developer-cloud');
+var alchemy_language = watson.alchemy_language({
+  api_key: '0d48b5ecfeb6b69c069f2ffd09287ec518c1d91c'
+})
+
+var parameters = {
+  url: 'http://www.charliechaplin.com/en/synopsis/articles/29-The-Great-Dictator-s-Speech'
+};
+
+alchemy_language.emotion(parameters, function (err, response) {
+  if (err)
+    console.log('error:', err);
+  else
+    console.log(JSON.stringify(response, null, 2));
+});
+</script>
